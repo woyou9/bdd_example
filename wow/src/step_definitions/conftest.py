@@ -30,7 +30,7 @@ def page(context):
     page.close()
 
 
-@pytest.fixture()
+@pytest.fixture
 def practice_form_page(page):
     return PracticeFormPage(page)
 
