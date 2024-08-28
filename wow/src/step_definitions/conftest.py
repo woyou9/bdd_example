@@ -5,7 +5,6 @@ import os
 
 URL = os.environ['FORM_URL']
 
-
 @pytest.fixture
 def browser():
     with sync_playwright() as playwright:
