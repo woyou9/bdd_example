@@ -3,10 +3,10 @@ from playwright.sync_api import expect
 from pytest_bdd import scenario, scenarios, when, then, given, parsers
 from wow.src.pages.page_objects.practice_form_page import PracticeFormPage
 
-scenarios('../features/submit_form.feature')
+scenarios('../features/submit_form_outline.feature')
 
 
-def test_fill_form():
+def test_form_with_outline():
     pass
 
 

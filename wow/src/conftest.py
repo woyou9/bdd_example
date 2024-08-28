@@ -11,7 +11,7 @@ def playwright_instance():
 
 @pytest.fixture
 def browser(playwright_instance):
-    browser = playwright_instance.chromium.launch(headless=False, slow_mo=1000)
+    browser = playwright_instance.chromium.launch(headless=False, slow_mo=0)
     yield browser
     browser.close()
 
@@ -33,3 +33,4 @@ def page(context):
 @pytest.fixture()
 def practice_form_page(page):
     return PracticeFormPage(page)
+
