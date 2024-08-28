@@ -11,14 +11,14 @@ def playwright_instance():
 
 @pytest.fixture
 def browser(playwright_instance):
-    browser = playwright_instance.chromium.launch(headless=False, slow_mo=0)
+    browser = playwright_instance.chromium.launch(headless=False, slow_mo=750)
     yield browser
     browser.close()
 
 
 @pytest.fixture
 def context(browser):
-    context = browser.new_context()
+    context = browser.new_context(viewport={"width": 1536, "height": 864})
     yield context
     context.close()
 

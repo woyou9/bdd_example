@@ -4,7 +4,7 @@ from pytest_bdd import scenario, scenarios, when, then, given, parsers
 from wow.src.pages.page_objects.practice_form_page import PracticeFormPage
 from wow.src.step_definitions.conftest import practice_form_page
 
-@pytest.mark.outline_scenario
+@pytest.mark.outline_scenario_usage
 @scenario('../features/submit_form_outline.feature', 'Fill all the required fields and then submit the form')
 def test_form_with_outline():
     pass
