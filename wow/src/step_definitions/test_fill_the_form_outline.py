@@ -11,9 +11,8 @@ def test_form_with_outline():
 
 
 @given(parsers.parse('the user is on the practice form page'))
-def go_to_practice_form(practice_form_page):
-    practice_form_page.page.goto('https://demoqa.com/automation-practice-form')
-
+def go_to_practice_form(navigate_and_login):
+    pass
 
 @when(parsers.parse('the user fills "{first_name}" in the required first name field'))
 def fill_required_name_field(practice_form_page, first_name):

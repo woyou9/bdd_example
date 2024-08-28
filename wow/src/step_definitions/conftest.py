@@ -34,3 +34,7 @@ def page(context):
 def practice_form_page(page):
     return PracticeFormPage(page)
 
+
+@pytest.fixture
+def navigate_and_login(practice_form_page):
+    practice_form_page.page.goto('https://demoqa.com/automation-practice-form', wait_until='load')
