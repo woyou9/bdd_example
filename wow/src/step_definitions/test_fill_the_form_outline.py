@@ -15,30 +15,30 @@ def go_to_practice_form(navigate_and_login):
     pass
 
 @when(parsers.parse('the user fills "{first_name}" in the required first name field'))
-def fill_required_name_field(practice_form_page, first_name):
+def fill_required_name_field(practice_form_page: PracticeFormPage, first_name):
     practice_form_page.fill_name_field(first_name)
 
 
 @when(parsers.parse('the user fills "{last_name}" in the required last name field'))
-def fill_required_last_name_field(practice_form_page, last_name):
+def fill_required_last_name_field(practice_form_page: PracticeFormPage, last_name):
     practice_form_page.fill_last_name_field(last_name)
 
 
 @when(parsers.parse('the user selects gender radio button'))
-def select_gender(practice_form_page):
+def select_gender(practice_form_page: PracticeFormPage):
     practice_form_page.gender_radio_buttons.first.click()
 
 
 @when(parsers.parse('the user fills "{mobile_number}" in the required mobile number field'))
-def fill_required_last_name_field(practice_form_page, mobile_number):
+def fill_required_last_name_field(practice_form_page: PracticeFormPage, mobile_number):
     practice_form_page.fill_mobile_number(mobile_number)
 
 
 @when(parsers.parse('the user presses submit button'))
-def press_submit(practice_form_page):
+def press_submit(practice_form_page: PracticeFormPage):
     practice_form_page.submit_button.click()
 
 
 @then(parsers.parse('the modal window with form summary should be visible'))
-def check_for_modal_window_header(practice_form_page):
+def check_for_modal_window_header(practice_form_page: PracticeFormPage):
     expect(practice_form_page.thanks_for_submitting_header).to_be_visible()
