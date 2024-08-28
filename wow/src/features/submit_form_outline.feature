@@ -1,4 +1,4 @@
-    Feature: Fill the form
+    Feature: Fill and submit the form
 
         Scenario Outline: Fill all the required fields and then submit the form
                 Given the user is on the practice form page
