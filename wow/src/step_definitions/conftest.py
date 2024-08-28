@@ -34,5 +34,9 @@ def practice_form_page(page):
 
 @pytest.fixture
 def navigate_and_login(practice_form_page):
-    # login
+    # practice_form_page.login_field.clear()
+    # practice_form_page.login_field.fill(login)
+    # practice_form_page.password_field.clear()
+    # practice_form_page.password_field.clear(password)
+    # przykładowy login, ta strona nie ma logowania
     practice_form_page.page.goto(URL, wait_until='load')
