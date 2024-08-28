@@ -3,10 +3,10 @@
         Scenario Outline: Fill all the required fields and then submit the form
                 Given the user is on the practice form page
                 When the user fills "<first_name>" in the required first name field
-                When the user fills "<last_name>" in the required last name field
-                When the user selects gender radio button
-                When the user fills "<mobile_number>" in the required mobile number field
-                When the user presses submit button
+                And the user fills "<last_name>" in the required last name field
+                And the user selects gender radio button
+                And the user fills "<mobile_number>" in the required mobile number field
+                And the user presses submit button
                 Then the modal window with form summary should be visible
                 Examples:
                         | first_name | last_name  | mobile_number |
