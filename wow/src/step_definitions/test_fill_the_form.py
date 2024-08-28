@@ -4,7 +4,7 @@ from playwright.sync_api import expect, Page
 from pytest_bdd import scenario, scenarios, when, then, given, parsers
 from wow.src.pages.page_objects.practice_form_page import PracticeFormPage
 
-
+@pytest.mark.normal_scenario
 @scenario('../features/submit_form.feature', 'Fill all the required fields and then submit the form')
 def test_fill_and_submit_form():
     pass
