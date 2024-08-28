@@ -1,9 +1,7 @@
 import pytest
 from playwright.sync_api import sync_playwright
 from wow.src.pages.page_objects.practice_form_page import PracticeFormPage
-import os
-
-URL = os.environ['FORM_URL']
+from wow.src.utils.env_vars import FORM_URL
 
 @pytest.fixture
 def browser():
@@ -39,4 +37,4 @@ def navigate_and_login(practice_form_page):
     # practice_form_page.password_field.clear()
     # practice_form_page.password_field.clear(password)
     # przykładowy login, ta strona nie ma logowania
-    practice_form_page.page.goto(URL, wait_until='load')
+    practice_form_page.page.goto(FORM_URL, wait_until='load')

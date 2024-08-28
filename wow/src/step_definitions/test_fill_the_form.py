@@ -3,6 +3,8 @@ import os
 from playwright.sync_api import expect, Page
 from pytest_bdd import scenario, scenarios, when, then, given, parsers
 from wow.src.pages.page_objects.practice_form_page import PracticeFormPage
+from wow.src.utils.env_vars import MODAL_HEADER_TEXT
+
 
 @pytest.mark.normal_scenario_usage
 @scenario('../features/submit_form.feature', 'Fill all the required fields and then submit the form')
@@ -41,3 +43,4 @@ def press_submit(practice_form_page: PracticeFormPage):
 @then(parsers.parse('the modal window with form summary should be visible'))
 def check_for_modal_window_header(practice_form_page):
     expect(practice_form_page.thanks_for_submitting_header).to_be_visible()
+    expect(practice_form_page.thanks_for_submitting_header).to_contain_text(MODAL_HEADER_TEXT)
