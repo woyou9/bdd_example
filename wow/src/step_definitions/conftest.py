@@ -1,12 +1,15 @@
 import pytest
 from playwright.sync_api import sync_playwright
 from wow.src.pages.page_objects.practice_form_page import PracticeFormPage
+import os
+
+URL = os.environ['FORM_URL']
 
 
 @pytest.fixture
 def browser():
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=False, slow_mo=750)
+        browser = playwright.chromium.launch(headless=False, slow_mo=0)
         yield browser
         browser.close()
 
@@ -33,4 +36,4 @@ def practice_form_page(page):
 @pytest.fixture
 def navigate_and_login(practice_form_page):
     # login
-    practice_form_page.page.goto('https://demoqa.com/automation-practice-form', wait_until='load')
+    practice_form_page.page.goto(URL, wait_until='load')
