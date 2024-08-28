@@ -9,7 +9,7 @@ URL = os.environ['FORM_URL']
 @pytest.fixture
 def browser():
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=False, slow_mo=0)
+        browser = playwright.chromium.launch(headless=False, slow_mo=500)
         yield browser
         browser.close()
 
