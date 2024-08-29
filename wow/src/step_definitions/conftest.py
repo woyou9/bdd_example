@@ -1,5 +1,4 @@
 import os
-
 import pytest
 from playwright.sync_api import sync_playwright
 from wow.src.pages.page_objects.practice_form_page import PracticeFormPage
@@ -7,6 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 FORM_URL = os.environ['FORM_URL']
+MODAL_HEADER_TEXT = os.environ['MODAL_HEADER_TEXT']
 
 @pytest.fixture
 def browser():
