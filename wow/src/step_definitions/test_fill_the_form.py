@@ -1,10 +1,12 @@
-import pytest
 import os
+import pytest
 from playwright.sync_api import expect, Page
 from pytest_bdd import scenario, scenarios, when, then, given, parsers
 from wow.src.pages.page_objects.practice_form_page import PracticeFormPage
-from wow.src.utils.env_vars import MODAL_HEADER_TEXT
+from dotenv import load_dotenv
 
+load_dotenv()
+MODAL_HEADER_TEXT = os.environ['MODAL_HEADER_TEXT']
 
 @pytest.mark.normal_scenario_usage
 @scenario('../features/submit_form.feature', 'Fill all the required fields and then submit the form')

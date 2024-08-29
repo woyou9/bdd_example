@@ -1,12 +1,17 @@
+import os
+
 import pytest
 from playwright.sync_api import sync_playwright
 from wow.src.pages.page_objects.practice_form_page import PracticeFormPage
-from wow.src.utils.env_vars import FORM_URL
+from dotenv import load_dotenv
+
+load_dotenv()
+FORM_URL = os.environ['FORM_URL']
 
 @pytest.fixture
 def browser():
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=False, slow_mo=500)
+        browser = playwright.chromium.launch(headless=False, slow_mo=0)
         yield browser
         browser.close()
 
