@@ -12,6 +12,9 @@ class PracticeFormPage:
         self.submit_button = self.page.locator(PracticeFormPageLocators.SUBMIT_BUTTON)
         self.thanks_for_submitting_header = self.page.locator(PracticeFormPageLocators.THANKS_FOR_SUBMITTING_HEADER)
         self.upload_file_button = self.page.locator(PracticeFormPageLocators.UPLOAD_FILE_BUTTON)
+        self.student_name_table_cell_value = self.page.locator(PracticeFormPageLocators.STUDENT_NAME_TABLE_CELL_VALUE)
+        self.mobile_number_table_cell_value = self.page.locator(PracticeFormPageLocators.MOBILE_NUMBER_TABLE_CELL_VALUE)
+        self.gender_table_cell_value = self.page.locator(PracticeFormPageLocators.GENDER_TABLE_CELL_VALUE)
 
     def fill_name_field(self, first_name):
         self.first_name_input_field.clear()

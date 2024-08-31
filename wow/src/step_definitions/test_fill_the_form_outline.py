@@ -26,9 +26,9 @@ def fill_required_last_name_field(practice_form_page: PracticeFormPage, last_nam
     practice_form_page.fill_last_name_field(last_name)
 
 
-@when(parsers.parse('the user selects gender radio button'))
-def select_gender(practice_form_page: PracticeFormPage):
-    practice_form_page.gender_radio_buttons.first.click()
+@when(parsers.parse('the user selects {gender} gender radio button'))
+def select_gender(practice_form_page: PracticeFormPage, gender):
+    practice_form_page.page.locator(f'.custom-radio [value={gender}]').click(force=True)
 
 
 @when(parsers.parse('the user fills "{mobile_number}" in the required mobile number field'))
@@ -53,10 +53,10 @@ def check_for_modal_window_header(practice_form_page: PracticeFormPage):
     expect(practice_form_page.thanks_for_submitting_header).to_contain_text(MODAL_HEADER_TEXT)
 
 
-@then(parsers.parse('the form summary should contain "{first_name}", "{last_name}" and "{mobile_number}"'))
-def check_for_modal_window_header(practice_form_page: PracticeFormPage, first_name, last_name, mobile_number):
-    expect(practice_form_page.page.locator('.table')).to_contain_text(first_name)
-    expect(practice_form_page.page.locator('.table')).to_contain_text(last_name)
-    expect(practice_form_page.page.locator('.table')).to_contain_text(mobile_number)
+@then(parsers.parse('the form summary should contain filled fields such as "{first_name}", "{last_name}", "{mobile_number}" and "{gender}"'))
+def assert_values_in_form_summary(practice_form_page: PracticeFormPage, first_name, last_name, mobile_number, gender):
+    expect(practice_form_page.student_name_table_cell_value).to_contain_text(f'{first_name} {last_name}')
+    expect(practice_form_page.mobile_number_table_cell_value).to_contain_text(mobile_number)
+    expect(practice_form_page.gender_table_cell_value).to_contain_text(gender)
     practice_form_page.page.locator('#closeLargeModal').click()
-    practice_form_page.page.reload()
+    # practice_form_page.page.reload()

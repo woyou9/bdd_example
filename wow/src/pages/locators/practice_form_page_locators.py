@@ -6,3 +6,6 @@ class PracticeFormPageLocators:
     SUBMIT_BUTTON = '#submit'
     THANKS_FOR_SUBMITTING_HEADER = '#example-modal-sizes-title-lg'
     UPLOAD_FILE_BUTTON = '#uploadPicture'
+    STUDENT_NAME_TABLE_CELL_VALUE = '.table tr:nth-of-type(1) td:nth-of-type(2)'
+    MOBILE_NUMBER_TABLE_CELL_VALUE = '.table tr:nth-of-type(4) td:nth-of-type(2)'
+    GENDER_TABLE_CELL_VALUE = '.table tr:nth-of-type(3) td:nth-of-type(2)'
