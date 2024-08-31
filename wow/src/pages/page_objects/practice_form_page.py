@@ -1,19 +1,19 @@
 import os
 
 from playwright.sync_api import Page
-from wow.src.pages.locators.practice_form_locators import PracticeFormLocators
+from wow.src.pages.locators.practice_form_page_locators import PracticeFormPageLocators
 
 
 class PracticeFormPage:
     def __init__(self, page: Page):
         self.page = page
-        self.first_name_input_field = self.page.locator(PracticeFormLocators.FIRST_NAME_INPUT_FIELD)
-        self.last_name_input_field = self.page.locator(PracticeFormLocators.LAST_NAME_INPUT_FIELD)
-        self.mobile_number_input_field = self.page.locator(PracticeFormLocators.MOBILE_NUMBER_INPUT_FIELD)
-        self.gender_radio_buttons = self.page.locator(PracticeFormLocators.GENDER_RADIO_BUTTONS)
-        self.submit_button = self.page.locator(PracticeFormLocators.SUBMIT_BUTTON)
-        self.thanks_for_submitting_header = self.page.locator(PracticeFormLocators.THANKS_FOR_SUBMITTING_HEADER)
-        self.upload_file_button = self.page.locator(PracticeFormLocators.UPLOAD_FILE_BUTTON)
+        self.first_name_input_field = self.page.locator(PracticeFormPageLocators.FIRST_NAME_INPUT_FIELD)
+        self.last_name_input_field = self.page.locator(PracticeFormPageLocators.LAST_NAME_INPUT_FIELD)
+        self.mobile_number_input_field = self.page.locator(PracticeFormPageLocators.MOBILE_NUMBER_INPUT_FIELD)
+        self.gender_radio_buttons = self.page.locator(PracticeFormPageLocators.GENDER_RADIO_BUTTONS)
+        self.submit_button = self.page.locator(PracticeFormPageLocators.SUBMIT_BUTTON)
+        self.thanks_for_submitting_header = self.page.locator(PracticeFormPageLocators.THANKS_FOR_SUBMITTING_HEADER)
+        self.upload_file_button = self.page.locator(PracticeFormPageLocators.UPLOAD_FILE_BUTTON)
 
     def fill_name_field(self, first_name):
         self.first_name_input_field.clear()

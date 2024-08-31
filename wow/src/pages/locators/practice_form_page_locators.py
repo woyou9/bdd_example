@@ -1,4 +1,4 @@
-class PracticeFormLocators:
+class PracticeFormPageLocators:
     FIRST_NAME_INPUT_FIELD = '#firstName'
     LAST_NAME_INPUT_FIELD = '#lastName'
     MOBILE_NUMBER_INPUT_FIELD = '#userNumber'

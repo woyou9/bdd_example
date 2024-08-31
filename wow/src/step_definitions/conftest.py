@@ -3,10 +3,14 @@ import pytest
 from playwright.sync_api import sync_playwright
 from wow.src.pages.page_objects.practice_form_page import PracticeFormPage
 from dotenv import load_dotenv
+from wow.src.pages.page_objects.upload_and_download_page import UploadAndDownloadPage
+
 
 load_dotenv()
 FORM_URL = os.environ['FORM_URL']
 MODAL_HEADER_TEXT = os.environ['MODAL_HEADER_TEXT']
+UPLOAD_AND_DOWNLOAD_URL = os.environ['UPLOAD_AND_DOWNLOAD_URL']
+
 
 @pytest.fixture(scope="session")
 def browser():
@@ -34,16 +38,24 @@ def page(browser_context):
 def practice_form_page(page):
     return PracticeFormPage(page)
 
+
+@pytest.fixture(scope="session")
+def upload_and_download_page(page):
+    return UploadAndDownloadPage(page)
+
+
 @pytest.fixture
-def download_file(browser_context):
+def download_file(browser_context, upload_and_download_page: UploadAndDownloadPage):
     page = browser_context.new_page()
-    page.goto('https://demoqa.com/upload-download')
-    with page.expect_download() as download_info:
-        page.locator('#downloadButton').click()
+    upload_and_download_page = UploadAndDownloadPage(page)
+    upload_and_download_page.page.goto(UPLOAD_AND_DOWNLOAD_URL)
+    with upload_and_download_page.page.expect_download() as download_info:
+        upload_and_download_page.download_button.click()
     download = download_info.value
     path = download.path()
-    page.close()
+    upload_and_download_page.page.close()
     return path
+
 
 @pytest.fixture(scope="session")
 def navigate_and_login(practice_form_page):
