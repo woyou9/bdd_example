@@ -1,5 +1,3 @@
-import os
-
 from playwright.sync_api import Page
 from wow.src.pages.locators.practice_form_page_locators import PracticeFormPageLocators
 
