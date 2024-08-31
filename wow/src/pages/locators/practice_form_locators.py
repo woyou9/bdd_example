@@ -5,3 +5,4 @@ class PracticeFormLocators:
     GENDER_RADIO_BUTTONS = '.custom-radio.custom-control'
     SUBMIT_BUTTON = '#submit'
     THANKS_FOR_SUBMITTING_HEADER = '#example-modal-sizes-title-lg'
+    UPLOAD_FILE_BUTTON = '#uploadPicture'

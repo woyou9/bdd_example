@@ -6,5 +6,6 @@
                 And the user fills "Łojewski" in the required last name field
                 And the user selects gender radio button
                 And the user fills "5091509500" in the required mobile number field
+                And the user uploads profile picture file
                 And the user presses submit button
                 Then the modal window with form summary should be visible
