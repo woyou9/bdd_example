@@ -15,7 +15,7 @@ UPLOAD_AND_DOWNLOAD_URL = os.environ['UPLOAD_AND_DOWNLOAD_URL']
 @pytest.fixture(scope="session")
 def browser():
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=False, slow_mo=500)
+        browser = playwright.chromium.launch(headless=False, slow_mo=0)
         yield browser
         browser.close()
 

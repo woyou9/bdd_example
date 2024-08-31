@@ -15,6 +15,8 @@ class PracticeFormPage:
         self.student_name_table_cell_value = self.page.locator(PracticeFormPageLocators.STUDENT_NAME_TABLE_CELL_VALUE)
         self.mobile_number_table_cell_value = self.page.locator(PracticeFormPageLocators.MOBILE_NUMBER_TABLE_CELL_VALUE)
         self.gender_table_cell_value = self.page.locator(PracticeFormPageLocators.GENDER_TABLE_CELL_VALUE)
+        self.close_summary_modal_button = self.page.locator(PracticeFormPageLocators.CLOSE_SUMMARY_MODAL_BUTTON)
+        self.picture_name_table_cell_value = self.page.locator(PracticeFormPageLocators.PICTURE_NAME_TABLE_CELL_VALUE)
 
     def fill_name_field(self, first_name):
         self.first_name_input_field.clear()

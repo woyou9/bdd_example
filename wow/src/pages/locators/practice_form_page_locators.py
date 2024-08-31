@@ -9,3 +9,5 @@ class PracticeFormPageLocators:
     STUDENT_NAME_TABLE_CELL_VALUE = '.table tr:nth-of-type(1) td:nth-of-type(2)'
     MOBILE_NUMBER_TABLE_CELL_VALUE = '.table tr:nth-of-type(4) td:nth-of-type(2)'
     GENDER_TABLE_CELL_VALUE = '.table tr:nth-of-type(3) td:nth-of-type(2)'
+    PICTURE_NAME_TABLE_CELL_VALUE = '.table tr:nth-of-type(8) td:nth-of-type(2)'
+    CLOSE_SUMMARY_MODAL_BUTTON = '#closeLargeModal'
