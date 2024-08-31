@@ -6,11 +6,6 @@ from wow.src.pages.page_objects.practice_form_page import PracticeFormPage
 from wow.src.step_definitions.conftest import MODAL_HEADER_TEXT
 
 
-@pytest.fixture
-def shared_context():
-    return {}
-
-
 @pytest.mark.outline_scenario_usage
 @scenario('../features/submit_form_outline.feature', 'Fill all the required fields and then submit the form')
 def test_form_with_outline():
@@ -62,9 +57,10 @@ def check_for_modal_window_header(practice_form_page: PracticeFormPage):
 
 @then(parsers.parse('the form summary should contain filled fields values such as "{first_name}", "{last_name}", "{mobile_number}" and "{gender}"'))
 def assert_values_in_form_summary(practice_form_page: PracticeFormPage, first_name, last_name, mobile_number, gender, shared_context):
-    expect(practice_form_page.student_name_table_cell_value).to_have_text(f'{first_name} {last_name}')
-    expect(practice_form_page.mobile_number_table_cell_value).to_have_text(mobile_number)
-    expect(practice_form_page.gender_table_cell_value).to_have_text(gender)
-    expect(practice_form_page.picture_name_table_cell_value).to_have_text(os.path.basename(shared_context.get('file_path')))
-    practice_form_page.close_summary_modal_button.click()
-
+    try:
+        expect(practice_form_page.student_name_table_cell_value).to_have_text(f'{first_name} {last_name}')
+        expect(practice_form_page.mobile_number_table_cell_value).to_have_text(mobile_number)
+        expect(practice_form_page.gender_table_cell_value).to_have_text(gender)
+        expect(practice_form_page.picture_name_table_cell_value).to_have_text(os.path.basename(shared_context.get('file_path')))
+    finally:
+        practice_form_page.close_summary_modal_button.click()

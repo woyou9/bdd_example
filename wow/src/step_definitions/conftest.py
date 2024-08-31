@@ -45,12 +45,12 @@ def upload_and_download_page(page):
 
 
 @pytest.fixture
-def download_file(browser_context, upload_and_download_page: UploadAndDownloadPage):
+def download_file(browser_context):
     page = browser_context.new_page()
     page.goto(UPLOAD_AND_DOWNLOAD_URL, wait_until='load')
     upload_and_download_page = UploadAndDownloadPage(page)
     with upload_and_download_page.page.expect_download() as download_info:
-        upload_and_download_page.download_button.click()
+        upload_and_download_page.download_button.click(force=True)
     download = download_info.value
     path = download.path()
     upload_and_download_page.page.close()
@@ -61,3 +61,8 @@ def download_file(browser_context, upload_and_download_page: UploadAndDownloadPa
 def navigate_and_login(practice_form_page):
     practice_form_page.page.goto(FORM_URL, wait_until='load')
     return practice_form_page
+
+
+@pytest.fixture
+def shared_context():
+    return {}
