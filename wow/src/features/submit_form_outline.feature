@@ -9,7 +9,7 @@
                 And the user uploads profile picture file
                 And the user presses submit button
                 Then the modal window with form summary should be visible
-                And the form summary should contain filled fields such as "<first_name>", "<last_name>", "<mobile_number>" and "<gender>"
+                And the form summary should contain filled fields values such as "<first_name>", "<last_name>", "<mobile_number>" and "<gender>"
                 Examples:
                         | first_name | last_name  | mobile_number | gender |
                         | Lucas      | Lucasowsky | 1234567899    | Male   |
