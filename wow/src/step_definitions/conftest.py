@@ -47,8 +47,8 @@ def upload_and_download_page(page):
 @pytest.fixture
 def download_file(browser_context, upload_and_download_page: UploadAndDownloadPage):
     page = browser_context.new_page()
+    page.goto(UPLOAD_AND_DOWNLOAD_URL, wait_until='load')
     upload_and_download_page = UploadAndDownloadPage(page)
-    upload_and_download_page.page.goto(UPLOAD_AND_DOWNLOAD_URL)
     with upload_and_download_page.page.expect_download() as download_info:
         upload_and_download_page.download_button.click()
     download = download_info.value

@@ -62,9 +62,9 @@ def check_for_modal_window_header(practice_form_page: PracticeFormPage):
 
 @then(parsers.parse('the form summary should contain filled fields values such as "{first_name}", "{last_name}", "{mobile_number}" and "{gender}"'))
 def assert_values_in_form_summary(practice_form_page: PracticeFormPage, first_name, last_name, mobile_number, gender, shared_context):
-    expect(practice_form_page.student_name_table_cell_value).to_contain_text(f'{first_name} {last_name}')
-    expect(practice_form_page.mobile_number_table_cell_value).to_contain_text(mobile_number)
-    expect(practice_form_page.gender_table_cell_value).to_contain_text(gender)
-    expect(practice_form_page.picture_name_table_cell_value).to_contain_text(os.path.basename(shared_context.get('file_path')))
+    expect(practice_form_page.student_name_table_cell_value).to_have_text(f'{first_name} {last_name}')
+    expect(practice_form_page.mobile_number_table_cell_value).to_have_text(mobile_number)
+    expect(practice_form_page.gender_table_cell_value).to_have_text(gender)
+    expect(practice_form_page.picture_name_table_cell_value).to_have_text(os.path.basename(shared_context.get('file_path')))
     practice_form_page.close_summary_modal_button.click()
 
