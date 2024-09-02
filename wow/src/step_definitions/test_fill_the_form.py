@@ -32,7 +32,7 @@ def fill_required_last_name_field(practice_form_page: PracticeFormPage, last_nam
     practice_form_page.fill_last_name_field(last_name)
 
 
-@when(parsers.parse('the user selects {gender} gender radio button'))
+@when(parsers.parse('the user selects "{gender}" gender radio button'))
 def select_gender(practice_form_page: PracticeFormPage, gender):
     practice_form_page.page.locator(f'.custom-radio [value={gender}]').click(force=True)
 

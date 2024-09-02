@@ -4,7 +4,7 @@
                 Given the user is on the practice form page
                 When the user fills "<first_name>" in the required first name field
                 And the user fills "<last_name>" in the required last name field
-                And the user selects <gender> gender radio button
+                And the user selects "<gender>" gender radio button
                 And the user fills "<mobile_number>" in the required mobile number field
                 And the user uploads profile picture file
                 And the user presses submit button
