@@ -18,6 +18,7 @@ class PracticeFormPage:
         self.close_summary_modal_button = self.page.locator(PracticeFormPageLocators.CLOSE_SUMMARY_MODAL_BUTTON)
         self.picture_name_table_cell_value = self.page.locator(PracticeFormPageLocators.PICTURE_NAME_TABLE_CELL_VALUE)
         self.summary_form_table = self.page.locator(PracticeFormPageLocators.SUMMARY_FORM_TABLE)
+        self.form_header = self.page.locator(PracticeFormPageLocators.FORM_HEADER)
 
     def fill_name_field(self, first_name):
         self.first_name_input_field.clear()

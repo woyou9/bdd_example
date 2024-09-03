@@ -12,3 +12,4 @@ class PracticeFormPageLocators:
     PICTURE_NAME_TABLE_CELL_VALUE = '.table tr:nth-of-type(8) td:nth-of-type(2)'
     CLOSE_SUMMARY_MODAL_BUTTON = '#closeLargeModal'
     SUMMARY_FORM_TABLE = '.modal-content .table'
+    FORM_HEADER = '.practice-form-wrapper > h1'
