@@ -38,7 +38,7 @@ def select_gender(practice_form_page: PracticeFormPage, gender):
 
 
 @when(parsers.parse('the user fills "{mobile_number}" in the required mobile number field'))
-def fill_required_last_name_field(practice_form_page: PracticeFormPage, mobile_number):
+def fill_required_mobile_number_field(practice_form_page: PracticeFormPage, mobile_number):
     practice_form_page.fill_mobile_number(mobile_number)
 
 
