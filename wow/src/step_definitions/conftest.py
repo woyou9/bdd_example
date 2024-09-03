@@ -5,6 +5,7 @@ from wow.src.pages.page_objects.practice_form_page import PracticeFormPage
 from dotenv import load_dotenv
 from wow.src.pages.page_objects.upload_and_download_page import UploadAndDownloadPage
 
+
 load_dotenv()
 FORM_URL = os.environ['FORM_URL']
 MODAL_HEADER_TEXT = os.environ['MODAL_HEADER_TEXT']
@@ -14,7 +15,7 @@ UPLOAD_AND_DOWNLOAD_URL = os.environ['UPLOAD_AND_DOWNLOAD_URL']
 @pytest.fixture(scope="session")
 def browser():
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=False, slow_mo=500)
+        browser = playwright.chromium.launch(headless=False, slow_mo=0)
         yield browser
         browser.close()
 

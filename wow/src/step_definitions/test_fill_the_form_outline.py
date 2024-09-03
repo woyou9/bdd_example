@@ -33,7 +33,7 @@ def select_gender(practice_form_page: PracticeFormPage, gender):
 
 
 @when(parsers.parse('the user fills "{mobile_number}" in the required mobile number field'))
-def fill_required_last_name_field(practice_form_page: PracticeFormPage, mobile_number):
+def fill_required_mobile_number_field(practice_form_page: PracticeFormPage, mobile_number):
     practice_form_page.fill_mobile_number(mobile_number)
 
 
@@ -56,15 +56,12 @@ def check_for_modal_window_header(practice_form_page: PracticeFormPage):
     expect(practice_form_page.summary_form_table).to_be_visible()
 
 
-@then(parsers.parse(
-    'the form summary should contain filled fields values such as "{first_name}", "{last_name}", "{mobile_number}" and "{gender}"'))
-def assert_values_in_form_summary(practice_form_page: PracticeFormPage, first_name, last_name, mobile_number, gender,
-                                  shared_context):
+@then(parsers.parse('the form summary should contain filled fields values such as "{first_name}", "{last_name}", "{mobile_number}" and "{gender}"'))
+def assert_values_in_form_summary(practice_form_page: PracticeFormPage, first_name, last_name, mobile_number, gender, shared_context):
     try:
         expect(practice_form_page.student_name_table_cell_value).to_have_text(f'{first_name} {last_name}')
         expect(practice_form_page.mobile_number_table_cell_value).to_have_text(mobile_number)
         expect(practice_form_page.gender_table_cell_value).to_have_text(gender)
-        expect(practice_form_page.picture_name_table_cell_value).to_have_text(
-            os.path.basename(shared_context.get('file_path')))
+        expect(practice_form_page.picture_name_table_cell_value).to_have_text(os.path.basename(shared_context.get('file_path')))
     finally:
         practice_form_page.close_summary_modal_button.click()
