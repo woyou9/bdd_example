@@ -13,7 +13,7 @@ def test_fill_and_submit_form_with_outline():
 
 
 @given('the user is on the practice form page')
-def go_to_practice_form(navigate_and_login):
+def go_to_practice_form(navigate_and_login: PracticeFormPage):
     expect(navigate_and_login.form_header).to_be_visible()
     expect(navigate_and_login.form_header).to_have_text('Practice Form')
 
