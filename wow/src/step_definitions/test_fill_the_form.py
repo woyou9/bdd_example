@@ -17,9 +17,10 @@ def test_fill_and_submit_form():
     pass
 
 
-@given(parsers.parse('the user is on the practice form page'))
-def go_to_practice_form(navigate_and_login):
-    pass
+@given('the user is on the practice form page')
+def go_to_practice_form(logged_in_user: PracticeFormPage):
+    expect(logged_in_user.form_header).to_be_visible()
+    expect(logged_in_user.form_header).to_have_text('Practice Form')
 
 
 @when(parsers.parse('the user fills "{first_name}" in the required first name field'))
@@ -42,19 +43,19 @@ def fill_required_mobile_number_field(practice_form_page: PracticeFormPage, mobi
     practice_form_page.fill_mobile_number(mobile_number)
 
 
-@when(parsers.parse('the user uploads profile picture file'))
+@when('the user uploads profile picture file')
 def upload_picture(download_file, practice_form_page: PracticeFormPage, shared_context):
     file_path = download_file
     shared_context['file_path'] = file_path
     practice_form_page.upload_profile_picture(file_path)
 
 
-@when(parsers.parse('the user presses submit button'))
+@when('the user presses submit button')
 def press_submit(practice_form_page: PracticeFormPage):
     practice_form_page.submit_button.click()
 
 
-@then(parsers.parse('the modal window with form summary should be visible'))
+@then('the modal window with form summary should be visible')
 def check_for_modal_window_header(practice_form_page):
     expect(practice_form_page.thanks_for_submitting_header).to_be_visible()
     expect(practice_form_page.thanks_for_submitting_header).to_contain_text(MODAL_HEADER_TEXT)

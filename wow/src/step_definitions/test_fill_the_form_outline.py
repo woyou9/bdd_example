@@ -13,9 +13,9 @@ def test_fill_and_submit_form_with_outline():
 
 
 @given('the user is on the practice form page')
-def go_to_practice_form(navigate_and_login: PracticeFormPage):
-    expect(navigate_and_login.form_header).to_be_visible()
-    expect(navigate_and_login.form_header).to_have_text('Practice Form')
+def go_to_practice_form(logged_in_user: PracticeFormPage):
+    expect(logged_in_user.form_header).to_be_visible()
+    expect(logged_in_user.form_header).to_have_text('Practice Form')
 
 
 @when(parsers.parse('the user fills "{first_name}" in the required first name field'))

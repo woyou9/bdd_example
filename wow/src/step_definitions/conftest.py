@@ -58,7 +58,7 @@ def download_file(browser_context):
 
 
 @pytest.fixture(scope="session")
-def navigate_and_login(practice_form_page: PracticeFormPage):
+def logged_in_user(practice_form_page: PracticeFormPage):
     practice_form_page.page.goto(FORM_URL, wait_until='load')
     return practice_form_page
 
