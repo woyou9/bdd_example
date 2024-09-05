@@ -26,21 +26,25 @@ def go_to_practice_form(logged_in_user: PracticeFormPage):
 @when(parsers.parse('the user fills "{first_name}" in the required first name field'))
 def fill_required_name_field(practice_form_page: PracticeFormPage, first_name):
     practice_form_page.fill_name_field(first_name)
+    expect(practice_form_page.first_name_input_field).not_to_be_empty()
 
 
 @when(parsers.parse('the user fills "{last_name}" in the required last name field'))
 def fill_required_last_name_field(practice_form_page: PracticeFormPage, last_name):
     practice_form_page.fill_last_name_field(last_name)
+    expect(practice_form_page.last_name_input_field).not_to_be_empty()
 
 
 @when(parsers.parse('the user selects "{gender}" gender radio button'))
 def select_gender(practice_form_page: PracticeFormPage, gender):
     practice_form_page.page.locator(f'.custom-radio [value={gender}]').click(force=True)
+    expect(practice_form_page.page.locator(f'.custom-radio [value={gender}]')).to_be_checked()
 
 
 @when(parsers.parse('the user fills "{mobile_number}" in the required mobile number field'))
 def fill_required_mobile_number_field(practice_form_page: PracticeFormPage, mobile_number):
     practice_form_page.fill_mobile_number(mobile_number)
+    expect(practice_form_page.mobile_number_input_field).not_to_be_empty()
 
 
 @when('the user uploads profile picture file')
@@ -59,6 +63,7 @@ def press_submit(practice_form_page: PracticeFormPage):
 def check_for_modal_window_header(practice_form_page):
     expect(practice_form_page.thanks_for_submitting_header).to_be_visible()
     expect(practice_form_page.thanks_for_submitting_header).to_contain_text(MODAL_HEADER_TEXT)
+    expect(practice_form_page.summary_form_table).to_be_visible()
 
 
 @then(parsers.parse('the form summary should contain filled fields values such as "{first_name}", "{last_name}", "{mobile_number}" and "{gender}"'))
