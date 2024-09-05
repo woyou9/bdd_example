@@ -38,4 +38,3 @@ class PracticeFormPage:
         file_chooser = fc_info.value
         file_chooser.set_files(file_path)
 
-
