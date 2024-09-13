@@ -6,11 +6,6 @@ from wow.src.pages.page_objects.practice_form_page import PracticeFormPage
 from wow.src.step_definitions.conftest import MODAL_HEADER_TEXT
 
 
-@pytest.fixture
-def shared_context():
-    return {}
-
-
 @pytest.mark.normal_scenario_usage
 @scenario('../features/submit_form.feature', 'Fill all the required fields and then submit the form')
 def test_fill_and_submit_form():
