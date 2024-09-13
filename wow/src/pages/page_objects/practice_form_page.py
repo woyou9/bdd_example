@@ -38,3 +38,5 @@ class PracticeFormPage:
         file_chooser = fc_info.value
         file_chooser.set_files(file_path)
 
+    def check_gender_radio_button(self, gender):
+        self.page.locator(f'.custom-radio [value={gender}]').click(force=True)
